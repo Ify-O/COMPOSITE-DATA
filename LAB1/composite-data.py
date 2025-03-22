@@ -19,7 +19,7 @@ for key, value in myVehicle.items():
 #creating a new category (the category below is empty)
 myInventoryList = []
 #opening the csv file that was created with the command below (since my csv file is not a root file but in a folder i used the ('copy relative path/the csv file name))
-with open('LAB1/car_fleet.csv') as csvFile:
+with open('LAB1/car-fleet.csv') as csvFile:
     csvReader = csv.reader(csvFile, delimiter=',')  #reading the csv file
     lineCount = 0  
     for row in csvReader:
@@ -40,3 +40,10 @@ with open('LAB1/car_fleet.csv') as csvFile:
                 myInventoryList.append(currentVehicle)  
                 lineCount += 1  
     print(f'Processed {lineCount} lines.')
+    
+    currentVehicle = copy.deepcopy(myVehicle)
+    
+    for myCarProperties in myInventoryList:
+        for key, value in myCarProperties.items():
+            print("{} : {}".format(key,value))
+            print("-----")
